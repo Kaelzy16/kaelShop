@@ -123,31 +123,9 @@
                 <li>SERVER KENCENG</li>
                 <li>MANTAP</li>
               </ul>
-              <!-- Slide Pembayaran -->
-        <div class="slide pembayaran-slide">
-            <h1>Pembayaran</h1>
-            <p>Masukkan detail pembayaran Anda di bawah ini:</p>
-            <form action="proses-pembayaran.php" method="POST">
-                <input type="text" name="nama" placeholder="Nama Lengkap" required>
-                <input type="text" name="alamat" placeholder="Alamat" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <select name="metode" required>
-                    <option value="kartu_kredit">Kartu Kredit</option>
-                    <option value="transfer_bank">Transfer Bank</option>
-                    <option value="e_wallet">E-Wallet</option>
-                </select>
-                <input type="text" name="nomor" placeholder="Nomor Pembayaran" required>
-                <button type="submit">Bayar Sekarang</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function goToPembayaran() {
-            // Menggeser slider ke slide pembayaran
-            document.getElementById('slider').style.transform = "translateX(-50%)";
-        }
-    </script>
+              <div class="btn-wrap">
+                <a href="pembayaran.html">
+        <button>Beli</button>
              </div>
             </div>
           </div>
