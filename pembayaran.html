@@ -18,24 +18,26 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            display: flex;
+            flex-direction: column; /* Susun elemen secara vertikal */
         }
         h1 {
             text-align: center;
             color: #4CAF50;
+            margin-bottom: 20px;
         }
         img {
             max-width: 100%;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
         ol {
             padding-left: 20px;
             color: #333;
+            margin-bottom: 20px;
         }
         .button {
-            display: block;
             text-align: center;
-            margin: 20px 0;
         }
         .button a {
             text-decoration: none;
@@ -51,9 +53,8 @@
 </head>
 <body>
     <div class="container">
+        <!-- Langkah-langkah berada di atas -->
         <h1>Top Up Free Fire</h1>
-        <!-- Ganti URL gambar di bawah ini -->
-        <img src="promo1.png" alt="Free Fire">
         <ol>
             <li>Masukkan <strong>ID FreeFire</strong>.</li>
             <li>Pilih <strong>Produk</strong> yang diinginkan.</li>
@@ -62,6 +63,8 @@
             <li>Klik <strong>Beli Sekarang</strong> dan lakukan pembayaran.</li>
             <li>Tunggu beberapa detik, pesanan akan otomatis masuk ke akun Anda.</li>
         </ol>
+        <!-- Gambar ada di bawah langkah-langkah -->
+        <img src="promo1.png" alt="Free Fire">
         <div class="button">
             <a href="#">Beli Sekarang</a>
         </div>
