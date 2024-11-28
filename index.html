@@ -67,102 +67,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foto Geser Otomatis</title>
-  <style>
-    /* Gaya untuk carousel */
-    .carousel {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      overflow: hidden;
-      position: relative;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        /* CSS untuk slider */
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
 
-    .carousel-slide {
-      min-width: 100%;
-      transition: transform 0.5s ease;
-    }
+        .slides img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-    .carousel-slide img {
-      width: 100%;
-      display: block;
-    }
+        /* Tombol navigasi */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 1000;
+        }
 
-    /* Navigasi tombol (opsional) */
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      pointer-events: none;
-    }
+        .prev {
+            left: 10px;
+        }
 
-    .carousel-controls button {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      pointer-events: auto;
-      border-radius: 50%;
-    }
-  </style>
+        .next {
+            right: 10px;
+        }
+
+        /* Titik indikator */
+        .indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .indicators button {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 50%;
+            background-color: gray;
+            cursor: pointer;
+        }
+
+        .indicators button.active {
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-slide"><img src="promo1.png" alt="Slide 1"></div>
-      <div class="carousel-slide"><img src="promo2.png" alt="Slide 2"></div>
-      <div class="carousel-slide"><img src="promo3.png" alt="Slide 3"></div>
+
+    <!-- Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="promo1.png" alt="Slide 1">
+            <img src="promo2.png" alt="Slide 2">
+            <img src="promo3.png" alt="Slide 3">
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
     </div>
-    <!-- Tombol navigasi -->
-    <div class="carousel-controls">
-      <button id="prevBtn">&#10094;</button>
-      <button id="nextBtn">&#10095;</button>
-    </div>
-  </div>
 
-  <script>
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    <!-- Titik indikator -->
+    <div class="indicators"></div>
 
-    let currentIndex = 0;
+    <script>
+        // JavaScript untuk slider
+        const slides = document.querySelector('.slides');
+        const images = document.querySelectorAll('.slides img');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const indicators = document.querySelector('.indicators');
 
-    // Fungsi untuk menggeser slide
-    function updateSlide() {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+        let currentIndex = 0;
 
-    // Tombol navigasi
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-      updateSlide();
-    });
+        // Buat indikator
+        images.forEach((_, index) => {
+            const button = document.createElement('button');
+            if (index === 0) button.classList.add('active');
+            button.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+            indicators.appendChild(button);
+        });
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-      updateSlide();
-    });
+        const updateSlider = () => {
+            // Geser slider
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    // Geser otomatis setiap 3 detik
-    setInterval(() => {
-      currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-      updateSlide();
-    }, 3000);
-  </script>
+            // Perbarui indikator
+            const allIndicators = document.querySelectorAll('.indicators button');
+            allIndicators.forEach(indicator => indicator.classList.remove('active'));
+            allIndicators[currentIndex].classList.add('active');
+        };
+
+        // Tombol prev dan next
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateSlider();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateSlider();
+        });
+
+        // Geser otomatis
+        setInterval(() => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateSlider();
+        }, 3000); // Ganti gambar setiap 3 detik
+    </script>
+
 </body>
 </html>
             </div>
