@@ -71,9 +71,10 @@
     <!-- Pilihan produk -->
     <h2>Pilih Produk</h2>
     <select id="productSelect">
-      <option value="Produk A" data-price="100000" data-id="A01">JASA INSTAL PANEL/THEME</option>
-      <option value="Produk B" data-price="200000" data-id="B001">Produk B</option>
-      <option value="Produk C" data-price="150000" data-id="C001">Produk C</option>
+      <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
+      <option value="JASA PUSH MEMBER" data-price="10.000">JASA PUSH MEMBER</option>
+      <option value="JASA SUNTIK SOSMED" data-price="10.000">JASA SUNTIK SOSMED</option>
+      <option value="JASA BUG WHATSAPP" data-price="10.000">JASA BUG WHATSAPP</option>
     </select>
     
     <img src="https://via.placeholder.com/600x300" alt="Produk">
@@ -107,15 +108,16 @@
     document.getElementById('productSelect').addEventListener('change', function() {
       const selectedProduct = this.value;
       const selectedPrice = this.options[this.selectedIndex].getAttribute('data-price');
-      const productId = this.options[this.selectedIndex].getAttribute('data-id');  // Ambil ID produk
 
       // Isi kolom Nama Produk dan Jumlah Harga
       document.getElementById('product').value = selectedProduct;
       document.getElementById('paymentAmount').value = selectedPrice;
-
-      // Output ID Produk untuk pemeriksaan
-      console.log('ID Produk:', productId); // Menampilkan ID produk yang dipilih di console
     });
+
+    // Fungsi untuk menghasilkan ID pesanan secara acak
+    function generateOrderId() {
+      return 'ORD-' + Math.floor(Math.random() * 1000000);  // ID acak dengan format ORD-XXXXX
+    }
 
     // Ketika form disubmit
     document.getElementById('paymentForm').addEventListener('submit', function(e) {
@@ -127,11 +129,8 @@
       const whatsapp = document.getElementById('whatsapp').value;
       const paymentAmount = document.getElementById('paymentAmount').value;
 
-      // Ambil ID produk yang dipilih
-      const productId = document.getElementById('productSelect').options[document.getElementById('productSelect').selectedIndex].getAttribute('data-id');
-
-      // Buat ID pesanan secara acak
-      const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
+      // Generate ID Pesanan
+      const orderId = generateOrderId();  // Menghasilkan ID pesanan acak
 
       // Teks pengumuman yang ingin dikirimkan
       const announcement = "ADA ORDERAN NIH BANG KAEL📦⚡️";
@@ -142,18 +141,18 @@ ${announcement}
 
 Nama: ${name}
 Nama Produk: ${product}
-ID Produk: ${productId}  <!-- Menambahkan ID produk -->
+ID Pesanan: ${orderId}  <!-- ID pesanan acak -->
 Nomor WhatsApp: ${whatsapp}
 Total Harga: Rp ${paymentAmount}
 
 Terima kasih sudah berbelanja di KAEL SHOP`;
 
-      // Output ke konsol untuk memeriksa produk yang dipilih dan ID produk
+      // Output ke konsol untuk memeriksa produk yang dipilih dan ID pesanan
       console.log('Produk yang dipilih:', product);
       console.log('Harga Produk:', paymentAmount);
-      console.log('ID Produk:', productId); // Menampilkan ID produk yang dipilih di console
+      console.log('ID Pesanan:', orderId); // Menampilkan ID pesanan yang dihasilkan di console
 
-      const whatsappUrl = `https://wa.me/6282396700834?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/6282396700834text=${encodeURIComponent(message)}`;
 
       // Redirect ke WhatsApp
       window.open(whatsappUrl, '_blank');
