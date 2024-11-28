@@ -38,7 +38,7 @@
       margin-bottom: 5px;
       font-weight: bold;
     }
-    input {
+    input, select {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -66,32 +66,58 @@
 </head>
 <body>
   <div class="container">
-    <p class="announcement">PEMBAYARAN KAEL SHOP</p>
-    <img src="promo1.png" alt="Produk">
+    <p class="announcement">*ADA ORDERAN NIH BANG KAEL📦⚡️*</p>
+    
+    <!-- Pilihan produk -->
+    <h2>Pilih Produk</h2>
+    <select id="productSelect">
+      <option value="Produk A" data-price="100000" data-id="A01">JASA INSTAL PANEL/THEME</option>
+      <option value="Produk B" data-price="200000" data-id="B001">Produk B</option>
+      <option value="Produk C" data-price="150000" data-id="C001">Produk C</option>
+    </select>
+    
+    <img src="https://via.placeholder.com/600x300" alt="Produk">
+    
     <h2>Langkah-Langkah Pembayaran</h2>
     <ol>
       <li>Pilih metode pembayaran.</li>
       <li>Isi data pembeli.</li>
       <li>Tekan tombol "Bayar".</li>
     </ol>
+
     <form id="paymentForm">
       <label for="name">Nama:</label>
       <input type="text" id="name" placeholder="Masukkan nama Anda" required>
 
       <label for="product">Nama Produk yang Dibeli:</label>
-      <input type="text" id="product" placeholder="Masukkan nama produk" required>
+      <input type="text" id="product" placeholder="Nama produk akan otomatis terisi" required readonly>
 
       <label for="whatsapp">Nomor WhatsApp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
 
       <label for="paymentAmount">Jumlah Harga:</label>
-      <input type="number" id="paymentAmount" placeholder="Masukkan jumlah harga" required>
+      <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
 
       <button type="submit">Bayar</button>
     </form>
   </div>
 
   <script>
+    // Menangani perubahan produk yang dipilih
+    document.getElementById('productSelect').addEventListener('change', function() {
+      const selectedProduct = this.value;
+      const selectedPrice = this.options[this.selectedIndex].getAttribute('data-price');
+      const productId = this.options[this.selectedIndex].getAttribute('data-id');  // Ambil ID produk
+
+      // Isi kolom Nama Produk dan Jumlah Harga
+      document.getElementById('product').value = selectedProduct;
+      document.getElementById('paymentAmount').value = selectedPrice;
+
+      // Output ID Produk untuk pemeriksaan
+      console.log('ID Produk:', productId); // Menampilkan ID produk yang dipilih di console
+    });
+
+    // Ketika form disubmit
     document.getElementById('paymentForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -100,6 +126,9 @@
       const product = document.getElementById('product').value;
       const whatsapp = document.getElementById('whatsapp').value;
       const paymentAmount = document.getElementById('paymentAmount').value;
+
+      // Ambil ID produk yang dipilih
+      const productId = document.getElementById('productSelect').options[document.getElementById('productSelect').selectedIndex].getAttribute('data-id');
 
       // Buat ID pesanan secara acak
       const orderId = 'ORD-' + Math.floor(Math.random() * 1000000);
@@ -113,10 +142,16 @@ ${announcement}
 
 Nama: ${name}
 Nama Produk: ${product}
+ID Produk: ${productId}  <!-- Menambahkan ID produk -->
 Nomor WhatsApp: ${whatsapp}
 Total Harga: Rp ${paymentAmount}
 
 Terima kasih sudah berbelanja di KAEL SHOP`;
+
+      // Output ke konsol untuk memeriksa produk yang dipilih dan ID produk
+      console.log('Produk yang dipilih:', product);
+      console.log('Harga Produk:', paymentAmount);
+      console.log('ID Produk:', productId); // Menampilkan ID produk yang dipilih di console
 
       const whatsappUrl = `https://wa.me/6282396700834?text=${encodeURIComponent(message)}`;
 
