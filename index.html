@@ -69,7 +69,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slider</title>
+    <title>Swipeable Image Slider</title>
     <style>
         /* CSS untuk slider */
         .slider {
@@ -140,7 +140,7 @@
 <body>
 
     <!-- Slider -->
-    <div class="slider">
+    <div class="slider" id="slider">
         <div class="slides">
             <img src="promo1.png" alt="Slide 1">
             <img src="promo2.png" alt="Slide 2">
@@ -155,6 +155,7 @@
 
     <script>
         // JavaScript untuk slider
+        const slider = document.getElementById('slider');
         const slides = document.querySelector('.slides');
         const images = document.querySelectorAll('.slides img');
         const prevButton = document.querySelector('.prev');
@@ -162,6 +163,10 @@
         const indicators = document.querySelector('.indicators');
 
         let currentIndex = 0;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let isDragging = false;
 
         // Buat indikator
         images.forEach((_, index) => {
@@ -175,10 +180,7 @@
         });
 
         const updateSlider = () => {
-            // Geser slider
             slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            // Perbarui indikator
             const allIndicators = document.querySelectorAll('.indicators button');
             allIndicators.forEach(indicator => indicator.classList.remove('active'));
             allIndicators[currentIndex].classList.add('active');
@@ -196,10 +198,52 @@
         });
 
         // Geser otomatis
-        setInterval(() => {
-            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+        const autoSlide = () => {
+            setInterval(() => {
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                updateSlider();
+            }, 3000); // Ganti gambar setiap 3 detik
+        };
+
+        // Fungsi untuk gesture swipe
+        const touchStart = (e) => {
+            isDragging = true;
+            startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+            slides.style.transition = 'none'; // Matikan animasi saat swipe
+        };
+
+        const touchMove = (e) => {
+            if (!isDragging) return;
+            const currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+            currentTranslate = prevTranslate + (currentX - startX);
+            slides.style.transform = `translateX(${currentTranslate}px)`;
+        };
+
+        const touchEnd = () => {
+            isDragging = false;
+            const movedBy = currentTranslate - prevTranslate;
+            if (movedBy < -100 && currentIndex < images.length - 1) {
+                currentIndex++;
+            }
+            if (movedBy > 100 && currentIndex > 0) {
+                currentIndex--;
+            }
             updateSlider();
-        }, 3000); // Ganti gambar setiap 3 detik
+            slides.style.transition = 'transform 0.5s ease-in-out';
+            prevTranslate = -currentIndex * slider.offsetWidth;
+        };
+
+        // Event listeners untuk swipe
+        slider.addEventListener('mousedown', touchStart);
+        slider.addEventListener('mousemove', touchMove);
+        slider.addEventListener('mouseup', touchEnd);
+        slider.addEventListener('mouseleave', () => isDragging && touchEnd());
+        slider.addEventListener('touchstart', touchStart);
+        slider.addEventListener('touchmove', touchMove);
+        slider.addEventListener('touchend', touchEnd);
+
+        // Jalankan slider otomatis
+        autoSlide();
     </script>
 
 </body>
