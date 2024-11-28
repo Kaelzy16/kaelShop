@@ -69,18 +69,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foto Geser Otomatis (16:9)</title>
+  <title>Foto Geser Otomatis</title>
   <style>
     /* Gaya untuk carousel */
     .carousel {
       width: 100%;
-      max-width: 800px; /* Ukuran maksimal untuk carousel */
+      max-width: 800px;
       margin: auto;
       overflow: hidden;
       position: relative;
       border: 2px solid #ddd;
       border-radius: 10px;
-      aspect-ratio: 16 / 9; /* Tambahkan untuk 16:9 */
     }
 
     .carousel-track {
@@ -90,13 +89,11 @@
 
     .carousel-slide {
       min-width: 100%;
-      flex-shrink: 0;
+      transition: transform 0.5s ease;
     }
 
     .carousel-slide img {
       width: 100%;
-      height: auto; /* Agar pas dengan container */
-      object-fit: cover; /* Gambar tetap proporsional dan memenuhi container */
       display: block;
     }
 
@@ -125,15 +122,9 @@
 <body>
   <div class="carousel">
     <div class="carousel-track">
-      <div class="carousel-slide">
-        <img src="promo1.jpg" alt="Slide 1">
-      </div>
-      <div class="carousel-slide">
-        <img src="promo2.jpg" alt="Slide 2">
-      </div>
-      <div class="carousel-slide">
-        <img src="promo3.jpg" alt="Slide 3">
-      </div>
+      <div class="carousel-slide"><img src="promo1.png" alt="Slide 1"></div>
+      <div class="carousel-slide"><img src="promo2.png" alt="Slide 2"></div>
+      <div class="carousel-slide"><img src="promo3.png" alt="Slide 3"></div>
     </div>
     <!-- Tombol navigasi -->
     <div class="carousel-controls">
