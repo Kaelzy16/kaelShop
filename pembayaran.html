@@ -66,8 +66,8 @@
 </head>
 <body>
   <div class="container">
-    <p class="announcement">*ADA ORDERAN NIH BANG KAEL📦⚡️*</p>
-    <img src="promo1.png" alt="Produk">
+    <p class="announcement">PEMBAYARAN KAEL SHOP</p>
+    <img src="https://via.placeholder.com/600x300" alt="Produk">
     <h2>Langkah-Langkah Pembayaran</h2>
     <ol>
       <li>Pilih metode pembayaran.</li>
@@ -107,8 +107,17 @@
       // Teks pengumuman yang ingin dikirimkan
       const announcement = "ADA ORDERAN NIH BANG KAEL📦⚡️";
 
-      // Format pesan WhatsApp dengan pengumuman dan informasi pembeli
-      const message = `${announcement}\n\nHalo, saya ${name}. Saya ingin membeli produk "${product}" dengan harga Rp ${paymentAmount}. Nomor WhatsApp saya: ${whatsapp}. ID Pesanan: ${orderId}.`;
+      // Format pesan WhatsApp dengan pengumuman dan informasi pembeli, vertikal
+      const message = `
+${announcement}
+
+Nama: ${name}
+Nama Produk: ${product}
+Nomor WhatsApp: ${whatsapp}
+Total Harga: Rp ${paymentAmount}
+
+Terima kasih sudah berbelanja di KAEL SHOP`;
+
       const whatsappUrl = `https://wa.me/6282396700834?text=${encodeURIComponent(message)}`;
 
       // Redirect ke WhatsApp
