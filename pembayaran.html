@@ -3,6 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Gambar dengan Geser Manual dan Otomatis</title>
+    <style>
+        /* Style untuk container slideshow */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Style untuk gambar-gambar dalam slideshow */
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+
+        /* Style untuk navigasi */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        /* Tombol hover untuk navigasi */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Untuk mengaktifkan swipe */
+        .slideshow-container {
+            touch-action: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <!-- Slides -->
+    <div class="mySlides fade">
+        <img src="testi1.png" alt="Gambar 1">
+    </div>
+    <div class="mySlides fade">
+        <img src="testi2.png" alt="Gambar 2">
+    </div>
+    <div class="mySlides fade">
+        <img src="testi3.png" alt="Gambar 3">
+    </div>
+    <div class="mySlides fade">
+        <img src="testi4.png" alt="Gambar 4">
+    </div>
+
+    <!-- Tombol navigasi -->
+    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+</div>
+
+<script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("mySlides");
+
+    // Fungsi untuk menampilkan slide
+    function showSlides() {
+        let i;
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 3000); // Ganti gambar setiap 3 detik
+    }
+
+    // Fungsi untuk geser manual
+    function plusSlides(n) {
+        slideIndex += n;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        if (slideIndex < 1) {slideIndex = slides.length}
+        showSlidesManual();
+    }
+
+    function showSlidesManual() {
+        let i;
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    // Fungsi untuk mendeteksi swipe pada layar
+    let startX;
+    document.querySelector('.slideshow-container').addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.slideshow-container').addEventListener('touchend', function(e) {
+        let endX = e.changedTouches[0].clientX;
+        if (startX > endX + 50) {
+            plusSlides(1); // Geser kanan
+        }
+        if (startX < endX - 50) {
+            plusSlides(-1); // Geser kiri
+        }
+    });
+
+    // Mulai slideshow otomatis
+    showSlides();
+</script>
+
+</body>
+</html>
+</div>
+</div>
+</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulir Pembayaran</title>
     <style>
         /* Reset dasar */
