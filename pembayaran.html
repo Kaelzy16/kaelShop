@@ -109,7 +109,7 @@
 
       // Format pesan WhatsApp dengan pengumuman dan informasi pembeli
       const message = `${announcement}\n\nHalo, saya ${name}. Saya ingin membeli produk "${product}" dengan harga Rp ${paymentAmount}. Nomor WhatsApp saya: ${whatsapp}. ID Pesanan: ${orderId}.`;
-      const whatsappUrl = `https://wa.me/6282396700834{whatsapp.replace(/^0/, '')}?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/6282396700834?text=${encodeURIComponent(message)}`;
 
       // Redirect ke WhatsApp
       window.open(whatsappUrl, '_blank');
