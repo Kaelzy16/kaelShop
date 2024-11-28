@@ -152,7 +152,7 @@ Terima kasih sudah berbelanja di KAEL SHOP`;
       console.log('Harga Produk:', paymentAmount);
       console.log('ID Pesanan:', orderId); // Menampilkan ID pesanan yang dihasilkan di console
 
-      const whatsappUrl = `https://wa.me/6282396700834text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/6282396700834?text=${encodeURIComponent(message)}`;
 
       // Redirect ke WhatsApp
       window.open(whatsappUrl, '_blank');
