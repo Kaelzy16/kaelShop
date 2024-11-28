@@ -64,6 +64,84 @@
         </g>
       </svg>
     </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Geser Sendiri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 80%; /* Sesuaikan lebar slideshow */
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Tombol navigasi */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+    </style>
+</head>
 <body>
     <div class="slideshow-container">
         <div class="slides">
@@ -79,45 +157,6 @@
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
-
-    <script>
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            const slides = document.querySelector('.slides');
-            const dots = document.querySelectorAll('.dot');
-            const totalSlides = slides.children.length;
-
-            // Loop index jika melewati batas
-            if (index >= totalSlides) currentIndex = 0;
-            if (index < 0) currentIndex = totalSlides - 1;
-
-            // Geser slide
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            // Atur active dot
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentIndex].classList.add('active');
-        }
-
-        function moveSlide(step) {
-            currentIndex += step;
-            showSlide(currentIndex);
-        }
-
-        function currentSlide(index) {
-            currentIndex = index - 1;
-            showSlide(currentIndex);
-        }
-
-        // Geser otomatis setiap 3 detik
-        setInterval(() => {
-            moveSlide(1);
-        }, 3000);
-
-        // Tampilkan slide pertama saat halaman dimuat
-        showSlide(currentIndex);
-    </script>
 </body>
 </html>
             </div>
