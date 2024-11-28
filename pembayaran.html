@@ -3,31 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembayaran</title>
+    <title>Bayar dengan WhatsApp</title>
+    <style>
+        /* Gaya untuk tampilan */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .product {
+            margin-bottom: 20px;
+        }
+        .product h3 {
+            margin: 0;
+        }
+        .product p {
+            margin: 5px 0;
+        }
+        .pay-button {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .pay-button:hover {
+            background-color: darkgreen;
+        }
+    </style>
 </head>
 <body>
-    <h1>Form Pembayaran</h1>
-    <form action="proses-pembayaran.php" method="POST">
-        <label for="nama">Nama Lengkap</label><br>
-        <input type="text" id="nama" name="nama" required><br><br>
 
-        <label for="alamat">Alamat</label><br>
-        <input type="text" id="alamat" name="alamat" required><br><br>
+    <h1>Daftar Produk</h1>
 
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+    <!-- Daftar Produk -->
+    <div class="product" id="product1">
+        <h3>Produk 1: VPS Digital Ocean</h3>
+        <p>Harga: Rp 10.000,-</p>
+        <button class="pay-button" onclick="pay('VPS Digital Ocean', 'Rp 10.000', '12345')">Bayar</button>
+    </div>
 
-        <label for="metode">Metode Pembayaran</label><br>
-        <select id="metode" name="metode" required>
-            <option value="kartu_kredit">Kartu Kredit</option>
-            <option value="transfer_bank">Transfer Bank</option>
-            <option value="e_wallet">E-Wallet</option>
-        </select><br><br>
+    <div class="product" id="product2">
+        <h3>Produk 2: Panel 1GB UNLI</h3>
+        <p>Harga: Rp 5.000,-</p>
+        <button class="pay-button" onclick="pay('Panel 1GB UNLI', 'Rp 5.000', '67890')">Bayar</button>
+    </div>
 
-        <label for="nomor">Nomor Pembayaran</label><br>
-        <input type="text" id="nomor" name="nomor" required><br><br>
+    <script>
+        // Fungsi untuk mengirim informasi pembayaran ke WhatsApp
+        function pay(item, price, orderId) {
+            // Membuat pesan WhatsApp
+            var message = encodeURIComponent(
+                `Halo, saya ingin melakukan pembayaran untuk:\n` +
+                `ID Pesanan: ${orderId}\n` +
+                `Item: ${item}\n` +
+                `Harga: ${price}\n\n` +
+                `Mohon informasi lebih lanjut mengenai pembayaran.`
+            );
 
-        <button type="submit">Bayar Sekarang</button>
-    </form>
+            // Nomor WhatsApp penerima (ganti dengan nomor Anda)
+            var phoneNumber = '6282396700834'; // Misalnya, +62 812 3456 7890 (tanpa tanda plus)
+
+            // Membuat URL WhatsApp
+            var url = `https://wa.me/6282396700834?text=<encoded_message`;
+
+            // Mengarahkan ke WhatsApp
+            window.location.href = url;
+        }
+    </script>
+
 </body>
 </html>
