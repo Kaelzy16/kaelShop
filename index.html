@@ -101,6 +101,148 @@
         }
     </style>
 </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Membuat elemen berlanjut ke baris baru jika ruang tidak cukup */
+            gap: 20px; /* Jarak antar produk */
+            justify-content: center; /* Membuat produk berada di tengah */
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px; /* Lebar tiap produk */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .card button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Best Seller</h1>
+    <div class="container">
+        <!-- Produk 1 -->
+        <div class="card">
+            <h3>Jasa Install Panel/Theme</h3>
+            <p>Rp10.000,-</p>
+            <p>Free Domain</p>
+            <p>Server Kenceng</p>
+            <button>Buy Now</button>
+        </div>
+        <!-- Produk 2 -->
+        <div class="card">
+            <h3>Jasa Push Member</h3>
+            <p>Rp10.000,-</p>
+            <p>Per Detik Permanen</p>
+            <p>Bonus 10 Member</p>
+            <button>Buy Now</button>
+        </div>
+        <!-- Produk 3 -->
+        <div class="card">
+            <h3>Jasa Suntik Sosmed</h3>
+            <p>Rp10.000,-</p>
+            <p>Murah Meriah</p>
+            <p>Permanent & Cepat</p>
+            <button>Buy Now</button>
+        </div>
+        <!-- Produk 4 -->
+        <div class="card">
+            <h3>Jasa Bug WhatsApp</h3>
+            <p>Rp10.000,-</p>
+            <p>Virus Ganas</p>
+            <p>Spam Banyak</p>
+            <button>Buy Now</button>
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUK BERDAMPINGAN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Membuat elemen berlanjut ke baris baru jika ruang tidak cukup */
+            gap: 20px; /* Jarak antar produk */
+            justify-content: center; /* Membuat produk berada di tengah */
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px; /* Lebar tiap produk */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .card button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
 <head>
     <meta charset="UTF-8">
@@ -155,6 +297,7 @@
                </div>
         <div class="row" data-aos="fade-left">
           <div class="col-lg-3 col-md-6">
+          <div class="card">
             <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
               <span class="advanced">BEST SELLER</span>
               <h3>JASA INSTAL PANEL/THEME</h3>
