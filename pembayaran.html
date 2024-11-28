@@ -1,75 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bayar dengan WhatsApp</title>
-    <style>
-        /* Gaya untuk tampilan */
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .product {
-            margin-bottom: 20px;
-        }
-        .product h3 {
-            margin: 0;
-        }
-        .product p {
-            margin: 5px 0;
-        }
-        .pay-button {
-            background-color: green;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .pay-button:hover {
-            background-color: darkgreen;
-        }
-    </style>
+    <title>Formulir Pembayaran</title>
 </head>
 <body>
 
-    <h1>Daftar Produk</h1>
+    <!-- Formulir Pembayaran -->
+    <h3>Formulir Pembayaran</h3>
+    <form id="paymentForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
-    <!-- Daftar Produk -->
-    <div class="product" id="product1">
-        <h3>Produk 1: VPS Digital Ocean</h3>
-        <p>Harga: Rp 10.000,-</p>
-        <button class="pay-button" onclick="pay('VPS Digital Ocean', 'Rp 10.000', '12345')">Bayar</button>
-    </div>
+        <label for="phone">Nomor WhatsApp:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
 
-    <div class="product" id="product2">
-        <h3>Produk 2: Panel 1GB UNLI</h3>
-        <p>Harga: Rp 5.000,-</p>
-        <button class="pay-button" onclick="pay('Panel 1GB UNLI', 'Rp 5.000', '67890')">Bayar</button>
-    </div>
+        <label for="product">Nama Produk yang Dibeli:</label>
+        <input type="text" id="product" name="product" required><br><br>
 
+        <label for="amount">Jumlah Pembayaran:</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+
+    <!-- JavaScript untuk ID Pesanan Acak dan Pengiriman ke WhatsApp -->
     <script>
-        // Fungsi untuk mengirim informasi pembayaran ke WhatsApp
-        function pay(item, price, orderId) {
-            // Membuat pesan WhatsApp
-            var message = encodeURIComponent(
-                `Halo, saya ingin melakukan pembayaran untuk:\n` +
-                `ID Pesanan: ${orderId}\n` +
-                `Item: ${item}\n` +
-                `Harga: ${price}\n\n` +
-                `Mohon informasi lebih lanjut mengenai pembayaran.`
-            );
-
-            // Nomor WhatsApp penerima (ganti dengan nomor Anda)
-            var phoneNumber = '6282396700834'; // Misalnya, +62 812 3456 7890 (tanpa tanda plus)
-
-            // Membuat URL WhatsApp
-            var url = `https://wa.me/6282396700834?text=<encoded_message>`;
-
-            // Mengarahkan ke WhatsApp
-            window.location.href = url;
+        // Fungsi untuk menghasilkan ID pesanan acak
+        function generateOrderID() {
+            return 'ORDER-' + Math.random().toString(36).substr(2, 9).toUpperCase();
         }
+
+        // Menangani pengiriman formulir secara otomatis
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah formulir dikirim secara default
+
+            // Ambil data dari formulir
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var product = document.getElementById("product").value;
+            var amount = document.getElementById("amount").value;
+
+            // Generate ID pesanan acak
+            var orderID = generateOrderID();
+
+            // Membuat pesan yang akan dikirim ke WhatsApp
+            var message = "ADA ORDERAN NIH BANG KAEL📦⚡️%0A" + // Teks tambahan
+                          "ID Pesanan: " + orderID + "%0A" +
+                          "Nama: " + name + "%0A" +
+                          "Nomor WhatsApp: " + phone + "%0A" +
+                          "Produk: " + product + "%0A" +
+                          "Jumlah Pembayaran: Rp " + amount;
+
+            // Buat URL WhatsApp dengan pesan yang telah diisi
+            var whatsappUrl = "https://wa.me/62" + phone + "?text=" + message;
+
+            // Kirim ke WhatsApp
+            window.open(whatsappUrl, "_blank");
+        });
     </script>
 
 </body>
