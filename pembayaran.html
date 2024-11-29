@@ -127,8 +127,12 @@
       <label for="whatsapp">Nomor WhatsApp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
       
-      <label for="bayar">Bayar via:</label>
-      <input type="text" id="bayar" placeholder="Masukkan pembayaran via e-wallet" required>
+      <label for="payment">Bayar Via:</label>
+    <select id="payment" name="payment">
+        <option value="gopay">GoPay</option>
+        <option value="dana">Dana</option>
+        <option value="ovo">OVO</option>
+    </select>
 
       <label for="paymentAmount">Jumlah Harga:</label>
       <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
@@ -175,9 +179,9 @@ ${announcement}
 
 Nama: ${name}
 Nama Produk: ${product}
-ID Pesanan: ${orderId}  <!-- ID pesanan acak -->
+ID Pesanan: ${orderId}
 Nomor WhatsApp: ${whatsapp}
-Bayar Via: ${bayar}
+Bayar Via: ${payment}
 Total Harga: Rp ${paymentAmount}
 
 Terima kasih sudah berbelanja di KAEL SHOP`;
