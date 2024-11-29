@@ -81,8 +81,19 @@
   <div class="container">
     <p class="announcement">PEMBAYARAN KAEL SHOP</p>
     
-    <!-- Pilihan produk -->
-    <h2>PILIH PRODUK DI BAWAH INI👇</h2>
+    <img src="poster_pembayaran.png" alt="Produk">
+    
+    <h2>Langkah-Langkah Pembayaran</h2>
+    <ol>
+      <li>Isi nama anda.</li>
+      <li>Pilih produk yang ingin di beli.</li>
+      <li>Isi nomor whatsapp anda.</li>
+      <li>Isi pembayaran e-wallet</li>
+      <li>Isi jumlah harga.</li>
+      <li>Tekan tombol "Bayar".</li>
+    </ol>
+
+    <form id="paymentForm">
     <select id="productSelect">
       <option value="PILIH PRODUK ANDA"</option value>
       <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
@@ -107,20 +118,6 @@
       <option value="ADMIN PANEL" data-price="25.000">ADMIN PANEL</option>
       <option value="RESELLER PANEL" data-price="15.000">RESELLER PANEL</option>
     </select>
-    
-    <img src="poster_pembayaran.png" alt="Produk">
-    
-    <h2>Langkah-Langkah Pembayaran</h2>
-    <ol>
-      <li>Isi nama anda.</li>
-      <li>Pilih produk yang ingin di beli.</li>
-      <li>Isi nomor whatsapp anda.</li>
-      <li>Isi pembayaran e-wallet</li>
-      <li>Isi jumlah harga.</li>
-      <li>Tekan tombol "Bayar".</li>
-    </ol>
-
-    <form id="paymentForm">
       <label for="name">Nama:</label>
       <input type="text" id="name" placeholder="Masukkan nama Anda" required>
 
