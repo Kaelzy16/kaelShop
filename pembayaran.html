@@ -54,12 +54,23 @@
       padding: 10px; /* Tambahkan jarak dalam */
     }
     button {
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+      font-size: 18px; /* Membesarkan ukuran teks
+                      dalam tombol */
+      padding: 15px 30px; /* Menambahkan ruang dalam
+                         tombol (vertikal horizontal) */
+      height: 45px; /* Menentukan tinggi tombol */
+      width: auto; /* Lebar tombol otomatis menyesuaikan
+                 dengan konten */
+      background-color: #4CAF50; /* Warna latar belakang
+                                 tombol */
+      color: white; /* Warna teks tombol */
+      border: none; /* Menghilangkan border default */
+      border-radius: 5px; /* Menambahkan sudut
+                          melengkung pada tombol */
+      cursor: pointer; /* Menambahkan pointer saat
+                      tombol dihover */
+      transition: background-color 0.3s ease; /* Menambahkan efek transisi saat hover */
+}
     }
     button:hover {
       background-color: #218838;
@@ -75,6 +86,33 @@
 <body>
   <div class="container">
     <p class="announcement">PEMBAYARAN KAEL SHOP</p>
+    
+    <!-- Pilihan produk -->
+    <h2>pilih produk disini👇</h2>
+    <select id="productSelect">
+      <option value="PILIH PRODUK ANDA"</option value>
+      <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
+      <option value="JASA PUSH MEMBER" data-price="10.000">JASA PUSH MEMBER</option>
+      <option value="JASA SUNTIK SOSMED" data-price="10.000">JASA SUNTIK SOSMED</option>
+      <option value="JASA BUG WHATSAPP" data-price="10.000">JASA BUG WHATSAPP</option>
+      <option value="VPS DO RAM 1" data-price="10.000">VPS DO RAM 1</option>
+      <option value="VPS DO RAM 2" data-price="20.000">VPS DO RAM 2</option>
+      <option value="VPS DO RAM 4" data-price="40.000">VPS DO RAM 4</option>
+      <option value="VPS DO RAM 8" data-price="50.000">VPS DO RAM 8</option>
+      <option value="VPS DO RAM 16" data-price="80.000">VPS DO RAM 16</option>
+      <option value="PRIVATE PANEL 1GB" data-price="1.000">PRIVATE PANEL 1GB</option>
+      <option value="PRIVATE PANEL 2GB" data-price="2.000">PRIVATE PANEL 2GB</option>
+      <option value="PRIVATE PANEL 3GB" data-price="3.000">PRIVATE PANEL 3GB</option>
+      <option value="PRIVATE PANEL 4GB" data-price="4.000">PRIVATE PANEL 4GB</option>
+      <option value="PRIVATE PANEL 5GB" data-price="5.000">PRIVATE PANEL 5GB</option>
+      <option value="PRIVATE PANEL 6GB" data-price="6.000">PRIVATE PANEL 6GB</option>
+      <option value="PRIVATE PANEL 7GB" data-price="7.000">PRIVATE PANEL 7GB</option>
+      <option value="PRIVATE PANEL UNLI" data-price="10.000">PRIVATE PANEL UNLI</option>
+      <option value="PARTNER PANEL" data-price="50.000">PARTNER PANEL</option>
+      <option value="OWNER PANEL" data-price="25.000">OWNER PANEL</option>
+      <option value="ADMIN PANEL" data-price="25.000">ADMIN PANEL</option>
+      <option value="RESELLER PANEL" data-price="15.000">RESELLER PANEL</option>
+    </select>
     
     <img src="poster_pembayaran.png" alt="Produk">
     
@@ -94,7 +132,7 @@
       <label for="name">nama:</label>
       <input type="text" id="name" placeholder="Masukkan nama Anda" required>
 
-      <label for="product">Pilih produk:</label>
+      <label for="product">nama produk:</label>
     <select id="productSelect">
       <option value="PILIH PRODUK ANDA"</option value>
       <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
@@ -121,13 +159,13 @@
     </select>
       <input type="text" id="product" placeholder="Nama produk akan otomatis terisi" required readonly>
 
-      <label for="whatsapp">Nomor whatsapp:</label>
+      <label for="whatsapp">nomor whatsapp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
       
-      <label for="text">Bayar via:</label>
+      <label for="text">bayar via:</label>
       <input type="text" id="via" placeholder="Masukkan pembayaran via e-wallet" required>
 
-      <label for="paymentAmount">Jumlah Harga:</label>
+      <label for="paymentAmount">jumlah Harga:</label>
       <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
 
       <button type="submit">Bayar</button>
