@@ -95,7 +95,7 @@
       <option value="RESELLER PANEL" data-price="15.000">RESELLER PANEL</option>
     </select>
     
-    <img src="https://via.placeholder.com/600x300" alt="Produk">
+    <img src="poster_pembayaran.png" alt="Produk">
     
     <h2>Langkah-Langkah Pembayaran</h2>
     <ol>
@@ -113,6 +113,9 @@
 
       <label for="whatsapp">Nomor WhatsApp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
+      
+      <label for="bayar">Bayar via:</label>
+      <input type="text" id="bayar" placeholder="Masukkan pembayaran via e-wallet" required>
 
       <label for="paymentAmount">Jumlah Harga:</label>
       <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
@@ -161,6 +164,7 @@ Nama: ${name}
 Nama Produk: ${product}
 ID Pesanan: ${orderId}  <!-- ID pesanan acak -->
 Nomor WhatsApp: ${whatsapp}
+Bayar Via: ${bayar}
 Total Harga: Rp ${paymentAmount}
 
 Terima kasih sudah berbelanja di KAEL SHOP`;
