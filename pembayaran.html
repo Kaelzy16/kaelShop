@@ -54,23 +54,12 @@
       padding: 10px; /* Tambahkan jarak dalam */
     }
     button {
-      font-size: 18px; /* Membesarkan ukuran teks
-                      dalam tombol */
-      padding: 15px 30px; /* Menambahkan ruang dalam
-                         tombol (vertikal horizontal) */
-      height: 50px; /* Menentukan tinggi tombol */
-      width: auto; /* Lebar tombol otomatis menyesuaikan
-                 dengan konten */
-      background-color: #4CAF50; /* Warna latar belakang
-                                 tombol */
-      color: white; /* Warna teks tombol */
-      border: none; /* Menghilangkan border default */
-      border-radius: 5px; /* Menambahkan sudut
-                          melengkung pada tombol */
-      cursor: pointer; /* Menambahkan pointer saat
-                      tombol dihover */
-      transition: background-color 0.3s ease; /* Menambahkan efek transisi saat hover */
-}
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
     button:hover {
       background-color: #218838;
@@ -127,19 +116,19 @@
     </ol>
 
     <form id="paymentForm">
-      <label for="name">nama:</label>
+      <label for="name">Nama:</label>
       <input type="text" id="name" placeholder="Masukkan nama Anda" required>
 
-      <label for="product">nama produk:</label>
+      <label for="product">Nama Produk yang Dibeli:</label>
       <input type="text" id="product" placeholder="Nama produk akan otomatis terisi" required readonly>
 
-      <label for="whatsapp">nomor whatsapp:</label>
+      <label for="whatsapp">Nomor WhatsApp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
       
-      <label for="text">bayar via:</label>
-      <input type="text" id="via" placeholder="Masukkan pembayaran via e-wallet" required>
+      <label for="bayar">Bayar via:</label>
+      <input type="text" id="bayar" placeholder="Masukkan pembayaran via e-wallet" required>
 
-      <label for="paymentAmount">jumlah Harga:</label>
+      <label for="paymentAmount">Jumlah Harga:</label>
       <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
 
       <button type="submit">Bayar</button>
@@ -184,7 +173,7 @@ ${announcement}
 
 Nama: ${name}
 Nama Produk: ${product}
-ID Pesanan: ${orderId}
+ID Pesanan: ${orderId}  <!-- ID pesanan acak -->
 Nomor WhatsApp: ${whatsapp}
 Bayar Via: ${bayar}
 Total Harga: Rp ${paymentAmount}
