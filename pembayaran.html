@@ -46,7 +46,6 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    input1
     input[type="text"],
     input[type="number"] {
       width: 100%; /* Atur lebar sesuai kebutuhan */
@@ -55,12 +54,23 @@
       padding: 10px; /* Tambahkan jarak dalam */
     }
     button {
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+      font-size: 18px; /* Membesarkan ukuran teks
+                      dalam tombol */
+      padding: 15px 30px; /* Menambahkan ruang dalam
+                         tombol (vertikal horizontal) */
+      height: 50px; /* Menentukan tinggi tombol */
+      width: auto; /* Lebar tombol otomatis menyesuaikan
+                 dengan konten */
+      background-color: #4CAF50; /* Warna latar belakang
+                                 tombol */
+      color: white; /* Warna teks tombol */
+      border: none; /* Menghilangkan border default */
+      border-radius: 5px; /* Menambahkan sudut
+                          melengkung pada tombol */
+      cursor: pointer; /* Menambahkan pointer saat
+                      tombol dihover */
+      transition: background-color 0.3s ease; /* Menambahkan efek transisi saat hover */
+}
     }
     button:hover {
       background-color: #218838;
@@ -78,7 +88,7 @@
     <p class="announcement">PEMBAYARAN KAEL SHOP</p>
     
     <!-- Pilihan produk -->
-    <h2>pilih produk disini👇</h2>
+    <h2>PILIH PRODUK DI👇</h2>
     <select id="productSelect">
       <option value="PILIH PRODUK ANDA"</option value>
       <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
@@ -111,11 +121,9 @@
       <li>Isi nama anda.</li>
       <li>Pilih produk yang ingin di beli.</li>
       <li>Isi nomor whatsapp anda.</li>
-      <li>Transfer ke nomor/scan di atas.</li>
       <li>Isi pembayaran e-wallet</li>
       <li>Isi jumlah harga.</li>
       <li>Tekan tombol "Bayar".</li>
-      <li>Lalu kirim bukti transfer.</li>
     </ol>
 
     <form id="paymentForm">
