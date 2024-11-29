@@ -53,27 +53,25 @@
       font-size: 18px; /* Perbesar ukuran font */
       padding: 10px; /* Tambahkan jarak dalam */
     }
-    button[type="submit"] {
-      font-size: 18px; /* Membesarkan ukuran teks
-                      dalam tombol */
-      padding: 15px 30px; /* Menambahkan ruang dalam
-                         tombol (vertikal horizontal) */
-      height: 45px; /* Menentukan tinggi tombol */
-      width: auto; /* Lebar tombol otomatis menyesuaikan
-                 dengan konten */
-      background-color: #4CAF50; /* Warna latar belakang
-                                 tombol */
-      color: white; /* Warna teks tombol */
-      border: none; /* Menghilangkan border default */
-      border-radius: 5px; /* Menambahkan sudut
-                          melengkung pada tombol */
-      cursor: pointer; /* Menambahkan pointer saat
-                      tombol dihover */
-}
-    }
-    button:hover {
-      background-color: #218838;
-    }
+    button {
+            font-size: 14px;
+            padding: 10px 20px;
+            height: 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            pointer-events: auto; /* Pastikan tombol bisa
+                                 diklik */
+            z-index: 10; /* Pastikan tombol berada di
+                         atas elemen lain */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
     .announcement {
       font-size: 18px;
       font-weight: bold;
