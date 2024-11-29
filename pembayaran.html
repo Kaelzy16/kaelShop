@@ -47,7 +47,8 @@
       border-radius: 4px;
     }
     input[type="text"],
-    input[type="number"] {
+    input[type="number"]
+    select[id="payment"] {
       width: 100%; /* Atur lebar sesuai kebutuhan */
       height: 45px; /* Atur tinggi */
       font-size: 18px; /* Perbesar ukuran font */
@@ -72,7 +73,7 @@
     .announcement {
       font-size: 18px;
       font-weight: bold;
-      color: #A3ECFF;
+      color: #23F2FF;
       margin-bottom: 20px;
     }
   </style>
@@ -81,16 +82,18 @@
   <div class="container">
     <p class="announcement">PEMBAYARAN KAEL SHOP</p>
     
-    <img src="poster_pembayaran.png" alt="Produk">
+    <img src="payment.png" alt="Produk">
     
     <h2>Langkah-Langkah Pembayaran</h2>
     <ol>
       <li>Isi nama anda.</li>
       <li>Pilih produk yang ingin di beli.</li>
       <li>Isi nomor whatsapp anda.</li>
+      <li>Transfer ke nomor/scan di atas.</li>
       <li>Isi pembayaran e-wallet</li>
       <li>Isi jumlah harga.</li>
       <li>Tekan tombol "Bayar".</li>
+      <li>Lalu kirim bukti transfer.</
     </ol>
 
     <form id="paymentForm">
@@ -99,7 +102,7 @@
 
       <label for="product">Nama Produk yang Dibeli:</label>
       <select id="productSelect">
-      <option value="PILIH PRODUK ANDA"</option value>
+      <option value="" disabled selected<pilih produk</option>
       <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
       <option value="JASA PUSH MEMBER" data-price="10.000">JASA PUSH MEMBER</option>
       <option value="JASA SUNTIK SOSMED" data-price="10.000">JASA SUNTIK SOSMED</option>
@@ -121,6 +124,14 @@
       <option value="OWNER PANEL" data-price="25.000">OWNER PANEL</option>
       <option value="ADMIN PANEL" data-price="25.000">ADMIN PANEL</option>
       <option value="RESELLER PANEL" data-price="15.000">RESELLER PANEL</option>
+      <option value="SC CPANEL" data-price="10.000">SC CPANEL SIMPLE</option>
+      <option value="KAEL PUSH V1" data-price="10.000">KAEL PUSH V1</option>
+      <option value="KAEL PUSH V2" data-price="10.000">KAEL PUSH V2</option>
+      <option value="KAEL PUSH X JPM" data-price="10.000">KAEL PUSH X JPM</option>
+      <option value="KAEL JAGA GRUP" data-price="10.000">KAEL JAGA GRUP</option>
+      <option value="KAEL 1000+ FITUR" data-price="10.000">KAEL 1000+ FITUR</option>
+      <option value="KAEL PUSH KONTAK VIP" data-price="10.000">KAEL PUSH KONTAK VIP</option>
+      <option value="CPANEL NO SCAN" data-price="10.000">CPANEL NO SCAN</option>
     </select>
       <input type="text" id="product" placeholder="Nama produk akan otomatis terisi" required readonly>
 
@@ -130,6 +141,7 @@
       <form id="paymentForm">
     <label for="payment">Metode Pembayaran:</label>
     <select id="payment" name="payment">
+        <option value="" disabled selected<pilih metode pembayaran</option>
         <option value="GoPay">GoPay</option>
         <option value="Dana">Dana</option>
         <option value="OVO">OVO</option>
