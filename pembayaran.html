@@ -127,12 +127,19 @@
       <label for="whatsapp">Nomor WhatsApp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
       
-      <label for="payment">Bayar Via:</label>
+      <form id="paymentForm">
+    <label for="payment">Metode Pembayaran:</label>
     <select id="payment" name="payment">
-        <option value="gopay">GoPay</option>
-        <option value="dana">Dana</option>
-        <option value="ovo">OVO</option>
+        <option value="GoPay">GoPay</option>
+        <option value="Dana">Dana</option>
+        <option value="OVO">OVO</option>
+        <option value="Qris">Qris</option>
     </select>
+    <input type="text" id="nama" name="nama" placeholder="Nama Anda">
+    <input type="text" id="produk" name="produk" placeholder="Produk yang Dibeli">
+    <input type="text" id="harga" name="harga" placeholder="Harga">
+    <button type="button" id="sendBtn">Kirim ke WhatsApp</button>
+</form>
 
       <label for="paymentAmount">Jumlah Harga:</label>
       <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
