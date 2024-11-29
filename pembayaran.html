@@ -127,14 +127,8 @@
       <label for="whatsapp">Nomor WhatsApp:</label>
       <input type="text" id="whatsapp" placeholder="Masukkan nomor WhatsApp" required>
       
-      <label for="payment">Bayar Via:</label>
-    <select id="payment" name="payment">
-        <option value="pilih">Pilih</option>
-        <option value="gopay">GoPay</option>
-        <option value="dana">Dana</option>
-        <option value="ovo">OVO</option>
-        <option value="qris">Qris</option>
-    </select>
+      <label for="bayar">Bayar via:</label>
+      <input type="text" id="bayar" placeholder="Masukkan pembayaran via e-wallet" required>
 
       <label for="paymentAmount">Jumlah Harga:</label>
       <input type="number" id="paymentAmount" placeholder="Harga akan otomatis terisi" required readonly>
@@ -173,9 +167,7 @@
       const orderId = generateOrderId();  // Menghasilkan ID pesanan acak
 
       // Teks pengumuman yang ingin dikirimkan
-      const announcement = "INFORMASI TRANSAKSI📦⚡️
-      
-      MOHON BERSABAR JIKA OWNER SEDANG OFFLINE";
+      const announcement = "ADA ORDERAN NIH BANG KAEL📦⚡️";
 
       // Format pesan WhatsApp dengan pengumuman dan informasi pembeli, vertikal
       const message = `
@@ -183,9 +175,9 @@ ${announcement}
 
 Nama: ${name}
 Nama Produk: ${product}
-ID Pesanan: ${orderId}
+ID Pesanan: ${orderId}  <!-- ID pesanan acak -->
 Nomor WhatsApp: ${whatsapp}
-Bayar Via: ${payment}
+Bayar Via: ${bayar}
 Total Harga: Rp ${paymentAmount}
 
 Terima kasih sudah berbelanja di KAEL SHOP`;
