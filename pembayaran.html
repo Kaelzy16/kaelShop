@@ -195,9 +195,10 @@
   </div>
  
  </div>
+ <div class="container">
   <div class="contact-info">
   <h3>Hubungi Kami</h3>
-  <p><i class="fas fa-map-marker-alt"></i> <strong>Alamat:</strong> 123 Jalan Contoh, Kota, Negara</p>
+  <p><i class="fas fa-map-marker-alt"></i> <strong>Alamat:</strong> Jalan Manado-Bitung, Manado, Indonesia</p>
   <p><i class="wa.me/6282396700834"></i> <strong>Telepon:</strong> +62 823 9670 0834</p>
   <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kaelzycomplain@gmail.com</p>
   <p><i class="fas fa-clock"></i> <strong>Jam Operasional:</strong> Buka tiap hari, 07:00 - 22:00</p>
@@ -234,12 +235,13 @@
       const orderId = generateOrderId();  // Menghasilkan ID pesanan acak
 
       // Teks pengumuman yang ingin dikirimkan
-      const announcement = "ADA ORDERAN NIH BANG KAEL📦⚡️";
+      const announcement = "*ADA ORDERAN NIH BANG KAEL📦⚡*";
 
       // Format pesan WhatsApp dengan pengumuman dan informasi pembeli, vertikal
       const message = `
 ${announcement}
 
+*DATA TRANSAKSI📝*
 Nama: ${name}
 Nama Produk: ${product}
 ID Pesanan: ${orderId}
@@ -247,7 +249,11 @@ Nomor WhatsApp: ${whatsapp}
 Bayar Via: ${payment}
 Total Harga: Rp ${paymentAmount}
 
-Terima kasih sudah berbelanja di KAEL SHOP`;
+*_PENTING :_*
+_- WAJIB KIRIM BESERTA BUKTI TRANFER_
+_- TIDAK ADA BUKTI ADMIN ANGGAP TIDAK MASUK_
+_- MOHON BERSABAR JIKA ADMIN SLOW RESPOND_
+Terima kasih sudah berbelanja di *KAEL SHOP*`;
 
       // Output ke konsol untuk memeriksa produk yang dipilih dan ID pesanan
       console.log('Produk yang dipilih:', product);
