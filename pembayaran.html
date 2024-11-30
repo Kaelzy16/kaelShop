@@ -19,6 +19,21 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    .dropdown {
+            width: 200px; /* Lebar dropdown */
+            font-size: 14px; /* Ukuran font lebih kecil */
+        }
+
+        .dropdown-menu {
+            max-height: 150px; /* Batas tinggi dropdown */
+            overflow-y: auto; /* Menambahkan scroll jika penuh */
+            border: 1px solid #ddd; /* Tambahkan border */
+            padding: 5px;
+        }
+
+        .dropdown-menu option {
+            padding: 5px;
+        }
     img {
       max-width: 100%;
       height: auto;
@@ -100,8 +115,9 @@
       <label for="name">Nama:</label>
       <input type="text" id="name" placeholder="Masukkan nama Anda" required>
 
+    <div class="dropdown">
       <label for="product">Nama Produk yang Dibeli:</label>
-      <select id="productSelect">
+      <select id="product" class="dropdown-menu">
       <option value="" disabled selected<pilih produk</option>
       <option value="JASA INSTAL PANEL/THEME" data-price="10.000">JASA INSTAL PANEL/THEME</option>
       <option value="JASA PUSH MEMBER" data-price="10.000">JASA PUSH MEMBER</option>
